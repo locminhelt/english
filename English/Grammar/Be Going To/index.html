@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be Going To vs Will - Bài học tương tác</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e7f5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(25, 55, 109, 0.15);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #19376d;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        .timeline-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 2px solid #bae6fd;
+        }
+        
+        .timeline-section h2 {
+            color: #19376d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: #19376d;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item.left {
+            justify-content: flex-start;
+        }
+        
+        .timeline-item.right {
+            justify-content: flex-end;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(25, 55, 109, 0.1);
+            border: 2px solid #a6d1e6;
+            position: relative;
+        }
+        
+        .timeline-item.right .timeline-content {
+            border-color: #ffb3c6;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #19376d;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #19376d;
+            z-index: 1;
+        }
+        
+        .timeline-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .timeline-label {
+            font-weight: bold;
+            color: #19376d;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .timeline-text {
+            color: #2c5282;
+            line-height: 1.6;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #a6d1e6 0%, #b8dce8 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: #19376d;
+            box-shadow: 0 8px 25px rgba(25, 55, 109, 0.12);
+            transition: transform 0.3s;
+            border: 2px solid #7fa8c9;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card.pink {
+            background: linear-gradient(135deg, #ffd6e0 0%, #ffe4ec 100%);
+            border: 2px solid #ffb3c6;
+        }
+        
+        .card h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #19376d;
+        }
+        
+        .illustration {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+        }
+        
+        .illustration-icon {
+            font-size: 5em;
+            margin-bottom: 10px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .illustration-text {
+            font-size: 0.95em;
+            color: #2c5282;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .usage {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #19376d;
+        }
+        
+        .card.pink .usage {
+            border-left-color: #ff91af;
+        }
+        
+        .usage h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #19376d;
+        }
+        
+        .example {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-style: italic;
+            color: #2c5282;
+        }
+        
+        .formula {
+            background: #19376d;
+            color: #ffd89b;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(25, 55, 109, 0.2);
+        }
+        
+        .quiz {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 2px solid #bae6fd;
+        }
+        
+        .quiz h2 {
+            color: #19376d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .question {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #19376d;
+            box-shadow: 0 4px 15px rgba(25, 55, 109, 0.08);
+        }
+        
+        .question p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #19376d;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            background: #e0f2fe;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #bae6fd;
+            color: #19376d;
+        }
+        
+        .option:hover {
+            background: #bae6fd;
+            transform: translateX(5px);
+        }
+        
+        .option.correct {
+            background: #a7f3d0;
+            color: #065f46;
+            border-color: #6ee7b7;
+        }
+        
+        .option.wrong {
+            background: #fecaca;
+            color: #991b1b;
+            border-color: #fca5a5;
+        }
+        
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .result.show {
+            background: #dbeafe;
+            color: #1e3a8a;
+            border: 2px solid #93c5fd;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                justify-content: flex-end !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 BE GOING TO vs WILL</h1>
+        
+        <div class="timeline-section">
+            <h2>⏰ Timeline - Cách sử dụng</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-icon">📅</span>
+                        <div class="timeline-label">BE GOING TO - Kế hoạch từ trước</div>
+                        <div class="timeline-text">
+                            Hôm qua: Tôi đã lên kế hoạch<br>
+                            <strong>→ Hôm nay: "I'm going to travel to Hanoi next week"</strong><br>
+                            Tuần sau: Thực hiện kế hoạch
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-icon">⚡</span>
+                        <div class="timeline-label">WILL - Quyết định tức thời</div>
+                        <div class="timeline-text">
+                            Bây giờ: Điện thoại reo!<br>
+                            <strong>→ "I'll answer it!" (Quyết định ngay)</strong><br>
+                            Ngay sau đó: Thực hiện hành động
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-icon">☁️</span>
+                        <div class="timeline-label">BE GOING TO - Dự đoán có bằng chứng</div>
+                        <div class="timeline-text">
+                            Bây giờ: Nhìn thấy mây đen kín trời<br>
+                            <strong>→ "It's going to rain!"</strong><br>
+                            Sau 5 phút: Trời mưa (như dự đoán)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-icon">🌤️</span>
+                        <div class="timeline-label">WILL - Dự đoán không bằng chứng</div>
+                        <div class="timeline-text">
+                            Bây giờ: Không có dấu hiệu gì<br>
+                            <strong>→ "I think it will be sunny tomorrow"</strong><br>
+                            Ngày mai: Có thể nắng, có thể không
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <div class="card">
+                <h2>📅 BE GOING TO</h2>
+                
+                <div class="illustration">
+                    <span class="illustration-icon">🗓️➡️✈️</span>
+                    <div class="illustration-text">Kế hoạch đã sắp xếp từ trước</div>
+                </div>
+                
+                <div class="usage">
+                    <h3>1. Kế hoạch đã có từ trước</h3>
+                    <div class="example">
+                        ✓ I'm going to study abroad next year.<br>
+                        (Tôi sẽ đi du học năm sau - đã lên kế hoạch)
+                    </div>
+                </div>
+                
+                <div class="illustration">
+                    <span class="illustration-icon">☁️➡️🌧️</span>
+                    <div class="illustration-text">Nhìn thấy bằng chứng rõ ràng</div>
+                </div>
+                
+                <div class="usage">
+                    <h3>2. Dự đoán có bằng chứng</h3>
+                    <div class="example">
+                        ✓ Look at those clouds! It's going to rain.<br>
+                        (Nhìn những đám mây kìa! Trời sắp mưa - nhìn thấy mây đen)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card pink">
+                <h2>⚡ WILL</h2>
+                
+                <div class="illustration">
+                    <span class="illustration-icon">💡➡️🎯</span>
+                    <div class="illustration-text">Quyết định ngay lúc đó</div>
+                </div>
+                
+                <div class="usage">
+                    <h3>1. Quyết định tức thời</h3>
+                    <div class="example">
+                        ✓ I'm hungry. I'll make a sandwich.<br>
+                        (Tôi đói. Tôi sẽ làm bánh sandwich - quyết định ngay lúc đó)
+                    </div>
+                </div>
+                
+                <div class="illustration">
+                    <span class="illustration-icon">🤝💖</span>
+                    <div class="illustration-text">Lời hứa và đề nghị giúp đỡ</div>
+                </div>
+                
+                <div class="usage">
+                    <h3>2. Lời hứa / đề nghị</h3>
+                    <div class="example">
+                        ✓ I'll help you with your homework.<br>
+                        (Tôi sẽ giúp bạn làm bài tập - lời hứa)
+                    </div>
+                </div>
+                
+                <div class="illustration">
+                    <span class="illustration-icon">🤔➡️❓</span>
+                    <div class="illustration-text">Dự đoán dựa trên suy nghĩ</div>
+                </div>
+                
+                <div class="usage">
+                    <h3>3. Dự đoán không có bằng chứng</h3>
+                    <div class="example">
+                        ✓ I think it will be sunny tomorrow.<br>
+                        (Tôi nghĩ ngày mai trời sẽ nắng - chỉ là dự đoán)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="formula">
+            BE GOING TO = S + am/is/are + going to + V(nguyên mẫu)
+        </div>
+        
+        <div class="formula">
+            WILL = S + will + V(nguyên mẫu)
+        </div>
+        
+        <div class="quiz">
+            <h2>🎮 Thử sức ngay!</h2>
+            
+            <div class="question" data-answer="going">
+                <p><strong>Câu 1:</strong> Look at the sky! It _____ rain soon.</p>
+                <div class="options">
+                    <div class="option" data-value="going">is going to</div>
+                    <div class="option" data-value="will">will</div>
+                </div>
+            </div>
+            
+            <div class="question" data-answer="will">
+                <p><strong>Câu 2:</strong> I'm thirsty. I _____ get some water.</p>
+                <div class="options">
+                    <div class="option" data-value="going">am going to</div>
+                    <div class="option" data-value="will">will</div>
+                </div>
+            </div>
+            
+            <div class="question" data-answer="going">
+                <p><strong>Câu 3:</strong> We _____ visit our grandparents this weekend. We booked the tickets yesterday.</p>
+                <div class="options">
+                    <div class="option" data-value="going">are going to</div>
+                    <div class="option" data-value="will">will</div>
+                </div>
+            </div>
+            
+            <div class="question" data-answer="will">
+                <p><strong>Câu 4:</strong> Don't worry! I _____ help you carry those bags.</p>
+                <div class="options">
+                    <div class="option" data-value="going">am going to</div>
+                    <div class="option" data-value="will">will</div>
+                </div>
+            </div>
+            
+            <div class="result"></div>
+        </div>
+    </div>
+    
+    <script>
+        let score = 0;
+        let answered = 0;
+        const totalQuestions = 4;
+        
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.question');
+                const correctAnswer = question.dataset.answer;
+                const selectedAnswer = this.dataset.value;
+                const options = question.querySelectorAll('.option');
+                
+                if (question.classList.contains('answered')) return;
+                
+                question.classList.add('answered');
+                answered++;
+                
+                options.forEach(opt => {
+                    opt.style.pointerEvents = 'none';
+                    if (opt.dataset.value === correctAnswer) {
+                        opt.classList.add('correct');
+                    }
+                });
+                
+                if (selectedAnswer !== correctAnswer) {
+                    this.classList.add('wrong');
+                } else {
+                    score++;
+                }
+                
+                if (answered === totalQuestions) {
+                    const resultDiv = document.querySelector('.result');
+                    resultDiv.classList.add('show');
+                    const percentage = (score / totalQuestions) * 100;
+                    let message = '';
+                    
+                    if (percentage === 100) {
+                        message = '🎉 Xuất sắc! Bạn đã trả lời đúng tất cả!';
+                    } else if (percentage >= 75) {
+                        message = '👏 Tốt lắm! Bạn đã nắm vững kiến thức!';
+                    } else if (percentage >= 50) {
+                        message = '💪 Khá tốt! Hãy ôn lại một chút nhé!';
+                    } else {
+                        message = '📚 Hãy đọc lại bài học và thử lại nhé!';
+                    }
+                    
+                    resultDiv.textContent = `${message} (${score}/${totalQuestions} câu đúng)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
